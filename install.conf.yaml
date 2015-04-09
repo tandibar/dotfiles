@@ -1,3 +1,9 @@
 - clean: []
-- link: {}
-- shell: []
+
+- link:
+    ~/.antigen: antigen
+    ~/.zshrc: zshrc
+    ~/.gitconfig: gitconfig
+
+- shell:
+  - git update-submodules
