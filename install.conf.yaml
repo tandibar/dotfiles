@@ -4,6 +4,8 @@
     ~/.antigen: antigen
     ~/.zshrc: zshrc
     ~/.gitconfig: gitconfig
+    ~/.tmux.conf: tmux.conf
+    ~/.tmuxinator: tmuxinator
 
 - shell:
   - git update-submodules

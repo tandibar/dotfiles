@@ -1,0 +1,38 @@
+name: finderbox
+root: /Users/andreasbade/repos/finderbox-mobileapp
+
+# pre: sudo nginx
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+windows:
+  - server:
+      layout: b9ca,235x55,0,0[236x37,0,0,0,236x17,0,38{70x17,0,38,2,85x17,71,38,3,79x17,157,38,4}]
+      panes:
+        - shell: # just a shell
+        - frontend:
+          - cd webapp
+          - grunt server:local --app-type=nfcapp
+        - jobs:
+          - cd finderbox
+          - rake jobs:work
+        - frontend:
+          - cd finderbox-web-client
+          - grunt server
+  - development:
+      layout: main-horizontal
+      panes:
+        - server:
+          - cd finderbox
+        - frontend:
+          - cd finderbox-web-client
