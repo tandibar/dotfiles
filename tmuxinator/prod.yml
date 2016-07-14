@@ -1,7 +1,5 @@
 name: prod
 root: /Users/andreasbade/repos/fb-provisioning
-attach: false
-post: tmux -CC attach
 
 windows:
   - production logs:

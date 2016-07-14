@@ -2,8 +2,6 @@
 
 name: integration
 root: /Users/andreasbade/repos/finderbox
-attach: false
-post: tmux -CC attach
 
 # Optional tmux socket
 # socket_name: foo
@@ -31,13 +29,11 @@ post: tmux -CC attach
 
 windows:
   - server:
+      layout: main-horizontal
       panes:
         - backend:
           - cd finderbox
           - rails server -p 3100 -e integration_local -P tmp/pids/integrationserver.pid
-        - jobs:
-          - cd finderbox
-          - rake jobs:work RAILS_ENV=integration_local
         - execution:
           - cd finderbox-web-client
           - echo grunt test-local:all:data
