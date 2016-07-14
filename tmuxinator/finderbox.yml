@@ -38,3 +38,10 @@ windows:
           - cd finderbox
         - frontend:
           - cd finderbox-web-client
+  - services:
+      layout: main-horizontal
+      panes:
+        - docker:
+          - docker run -p 9200:9200 -p 9300:9300 --name fb-es_instance -v ~/tmp/elasticsearch-fb-docker:/usr/share/elasticsearch/data -i -P fb-elasticsearch
+        - postgres:
+          - echo "https://github.com/didlich/alpine-postgresql"
