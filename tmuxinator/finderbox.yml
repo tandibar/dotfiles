@@ -42,6 +42,13 @@ windows:
       layout: main-horizontal
       panes:
         - docker:
-          - docker run -p 9200:9200 -p 9300:9300 --name fb-es_instance -v ~/tmp/elasticsearch-fb-docker:/usr/share/elasticsearch/data -i -P fb-elasticsearch
+          - docker run -p 9200:9200 -p 9300:9300 --rm --name fb-es_instance -v ~/tmp/elasticsearch-fb-docker:/usr/share/elasticsearch/data -i -P fb-elasticsearch
         - postgres:
           - echo "https://github.com/didlich/alpine-postgresql"
+  - libs:
+      layout: main-horizontal
+      panes:
+        - translations:
+          - fb t
+        - api:
+          - fb a
