@@ -1,0 +1,15 @@
+name: dev
+root: /Users/andreasbade/repos/fb-provisioning
+
+windows:
+  - logs:
+      layout: tiled
+      panes:
+        - dev 1 less:
+          - cd .
+          - ./fb-cloud connect dev 1
+          - less -R +F /var/log/wildfly/console.log
+        - dev 1 htop:
+          - cd .
+          - ./fb-cloud connect dev 1
+          - htop

@@ -1,0 +1,23 @@
+name: qa
+root: /Users/andreasbade/repos/fb-provisioning
+
+windows:
+  - logs:
+      layout: tiled
+      panes:
+        - qa 1 less:
+          - cd .
+          - ./fb-cloud connect qa 1
+          - less -R +F /var/log/wildfly/console.log
+        - qa 1 htop:
+          - cd .
+          - ./fb-cloud connect qa 1
+          - htop
+        - qa 2 less:
+          - cd .
+          - ./fb-cloud connect qa 2
+          - less -R +F /var/log/wildfly/console.log
+        - qa 2 htop:
+          - cd .
+          - ./fb-cloud connect qa 2
+          - htop
