@@ -1,0 +1,12 @@
+name: fb-landing
+root: /Users/andreasbade/repos/fb-landing
+
+windows:
+  - dev:
+      layout: tiled
+      panes:
+        - server:
+          - cd .
+          - hugo server
+        - dev:
+          - cd .
