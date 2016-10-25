@@ -7,6 +7,6 @@ windows:
       panes:
         - server:
           - cd .
-          - hugo server
+          - hugo server --baseURL="finderbox.dev" --buildDrafts
         - dev:
           - cd .
