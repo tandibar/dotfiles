@@ -1,7 +1,7 @@
 # ~/.tmuxinator/integration.yml
 
 name: integration
-root: /Users/andreasbade/repos/finderbox
+root: ~/repos/finderbox
 
 # Optional tmux socket
 # socket_name: foo
