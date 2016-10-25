@@ -91,6 +91,7 @@ alias fbt="cd ~/repos/angular-modules/finderbox-translations"
 echo "created finderbox aliases"
 
 alias git_config_idenpro="git config user.name \"Andi Bade\"; git config user.email \"andreas.bade@identpro.de\""
+alias mux="tmuxinator"
 
 echo "... aliases created"
 
