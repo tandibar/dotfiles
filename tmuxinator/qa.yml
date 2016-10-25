@@ -1,5 +1,5 @@
 name: qa
-root: /Users/andreasbade/repos/fb-provisioning
+root: ~/repos/fb-provisioning
 
 windows:
   - logs:

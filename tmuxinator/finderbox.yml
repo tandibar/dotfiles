@@ -1,5 +1,5 @@
 name: finderbox
-root: /Users/andreasbade/repos/finderbox
+root: ~/repos/finderbox
 
 # pre: sudo nginx
 

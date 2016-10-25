@@ -1,5 +1,5 @@
 name: prod
-root: /Users/andreasbade/repos/fb-provisioning
+root: ~/repos/fb-provisioning
 
 windows:
   - production logs:

@@ -1,5 +1,5 @@
 name: fb-landing
-root: /Users/andreasbade/repos/fb-landing
+root: ~/repos/fb-landing
 
 windows:
   - dev:
