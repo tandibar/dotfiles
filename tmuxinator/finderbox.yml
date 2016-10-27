@@ -21,7 +21,6 @@ windows:
       panes:
         - server-log:
           - cd finderbox
-          - less -R +F ./log/development.log
         - backend:
           - cd finderbox
           - rails s
@@ -30,7 +29,7 @@ windows:
           - rake jobs:work
         - frontend:
           - cd finderbox-web-client
-          - grunt server
+          - npm run dev
   - development:
       layout: main-horizontal
       panes:
