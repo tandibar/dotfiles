@@ -47,6 +47,7 @@ echo "export things"
 # PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH" # add gnu sed
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 export GIT_AUTHOR_NAME="Andi Bade"
 export GIT_AUTHOR_EMAIL="andi.bade@gmail.com"
@@ -88,6 +89,7 @@ alias fbam="cd ~/repos/angular-modules"
 alias fr="cd ~/repos/"
 alias fbp="cd ~/repos/fb-provisioning"
 alias fbt="cd ~/repos/angular-modules/finderbox-translations"
+alias fba="cd ~/repos/angular-modules/finderbox-api"
 echo "created finderbox aliases"
 
 alias git_config_idenpro="git config user.name \"Andi Bade\"; git config user.email \"andreas.bade@identpro.de\""
