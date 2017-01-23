@@ -32,6 +32,7 @@ antigen bundle clauswitt/zsh-grunt-plugin
 
 # rspec autocompletion by git status
 antigen bundle ~/dotfiles/plugins/completions --no-local-clone
+# antigen bundle https://github.com/tandibar/dotfiles plugins/completions
 
 echo "... antigene bundles loaded"
 # Load the theme.
