@@ -30,6 +30,9 @@ antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle clauswitt/zsh-grunt-plugin
 
+# rspec autocompletion by git status
+antigen bundle ~/dotfiles/plugins/completions --no-local-clone
+
 echo "... antigene bundles loaded"
 # Load the theme.
 antigen theme nebirhos
