@@ -31,6 +31,10 @@ antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle clauswitt/zsh-grunt-plugin
 
+# rspec autocompletion by git status
+antigen bundle ~/dotfiles/plugins/completions --no-local-clone
+# antigen bundle https://github.com/tandibar/dotfiles plugins/completions
+
 echo "... antigene bundles loaded"
 # Load the theme.
 antigen theme nebirhos
@@ -72,6 +76,9 @@ export FINDERBOX_MAVEN_REPO_HOST_NAME='finderbox-ci.cloudapp.net:10022/home/mave
 export FINDERBOX_MAVEN_REPO_PASSWORD='3aqNPG0UKEgvJHgrqcJK'
 
 export FINDERBOX_HOME="~/repos/finderbox/finderbox-home"
+export FBX_HOME="~/repos"
+
+export ANSIBLE_VAULT_PASSWORD_FILE=${HOME}/.ansible_vault_pass.txt
 
 echo "exported all environment variables"
 

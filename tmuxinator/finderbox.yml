@@ -49,6 +49,6 @@ windows:
       layout: main-horizontal
       panes:
         - translations:
-          - fb t
+          - fbt
         - api:
-          - fb a
+          - fba
