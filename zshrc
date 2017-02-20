@@ -1,5 +1,6 @@
 echo "starting antigene ..."
 source ~/dotfiles/antigen/antigen.zsh
+source ~/.machine.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -55,7 +56,6 @@ export GIT_COMMITTER_NAME="Andi Bade"
 export GIT_COMMITTER_EMAIL="andi.bade@gmail.com"
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
-export JAVA_HOME=`/usr/libexec/java_home`
 
 export FINDERBOX_APP_RELEASE_KEYSTORE=~/Projekte/finderbox/Keys/finderbox-app-release.keystore
 export FINDERBOX_APP_RELEASE_STORE_PW=2klickklack2
@@ -63,7 +63,6 @@ export FINDERBOX_APP_RELEASE_STORE_PW=2klickklack2
 export MAVEN_OPTS=-Xmx2048m
 export GRADLE_OPTS="-Xms1024m -Xmx4096m"
 export JRUBY_OPTS="-J-XX:ReservedCodeCacheSize=100m -J-Xmn512m -J-Xms2048m -J-Xmx2048m -J-server"
-export ANDROID_HOME=/usr/local/opt/android-sdk
 
 export EDITOR='atom'
 export VISUAL='atom'
@@ -82,14 +81,14 @@ alias es_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsear
 echo "'es_start' and 'es_stop' created"
 
 echo "creating finderbox aliases"
-alias fbw="cd ~/repos/finderbox/finderbox-web-client"
-alias fb="cd ~/repos/finderbox/finderbox"
-alias fbm="cd ~/repos/finderbox-mobileapp"
-alias fbam="cd ~/repos/angular-modules"
-alias fr="cd ~/repos/"
-alias fbp="cd ~/repos/fb-provisioning"
-alias fbt="cd ~/repos/angular-modules/finderbox-translations"
-alias fba="cd ~/repos/angular-modules/finderbox-api"
+alias fbw="cd $FBX_REPOS/finderbox/finderbox-web-client"
+alias fb="cd $FBX_REPOS/finderbox/finderbox"
+alias fbm="cd $FBX_REPOS/finderbox-mobileapp"
+alias fbam="cd $FBX_REPOS/angular-modules"
+alias fr="cd $FBX_REPOS/"
+alias fbp="cd $FBX_REPOS/fb-provisioning"
+alias fbt="cd $FBX_REPOS/angular-modules/finderbox-translations"
+alias fba="cd $FBX_REPOS/angular-modules/finderbox-api"
 echo "created finderbox aliases"
 
 alias git_config_idenpro="git config user.name \"Andi Bade\"; git config user.email \"andreas.bade@identpro.de\""

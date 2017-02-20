@@ -1,5 +1,5 @@
 name: finderbox
-root: ~/repos/finderbox
+root: <%= ENV["FBX_REPOS"] %>/finderbox
 
 # pre: sudo nginx
 
