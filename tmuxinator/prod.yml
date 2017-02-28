@@ -1,5 +1,5 @@
 name: prod
-root: ~/repos/fb-provisioning
+root: <%= ENV["FBX_REPOS"] %>/fb-provisioning
 
 windows:
   - production logs:
