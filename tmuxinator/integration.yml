@@ -1,7 +1,7 @@
 # ~/.tmuxinator/integration.yml
 
 name: integration
-root: ~/repos/finderbox
+root: <%= ENV["FBX_REPOS"] %>/finderbox
 
 # Optional tmux socket
 # socket_name: foo
