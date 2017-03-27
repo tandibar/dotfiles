@@ -11,7 +11,6 @@ echo "adding bundles to antigene ..."
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle adb
 antigen bundle bower
-antigen bundle brew
 antigen bundle git
 antigen bundle git-flow
 antigen bundle gradle
@@ -79,8 +78,19 @@ export FINDERBOX_HOME="~/repos/finderbox/finderbox-home"
 export FBX_HOME="~/repos"
 
 export ANSIBLE_VAULT_PASSWORD_FILE=${HOME}/.ansible_vault_pass.txt
+export WILDFLY_HOME="/Users/andreasbade/identplus/wildfly"
 
 echo "exported all environment variables"
+
+echo "creating functions ..."
+deploy() {
+  echo "deploying $1 into local wildfly ($WILDFLY_HOME)"
+  cp $1 "$WILDFLY_HOME/standalone/deployments"
+}
+undeploy() {
+  rm $WILDFLY_HOME/standalone/deployments/*
+}
+echo "... functions created"
 
 echo "creating aliases ..."
 alias es_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist"
