@@ -17,17 +17,17 @@ root: /Users/andreasbade/identplus
 
 windows:
   - server:
-      layout: b9ca,235x55,0,0[236x37,0,0,0,236x17,0,38{70x17,0,38,2,85x17,71,38,3,79x17,157,38,4}]
+      layout: a809,242x56,0,0[243x38,0,0{74x38,0,0,0,85x38,75,0,4,82x38,161,0,5},243x17,0,39{155x17,0,39,1,87x17,156,39,3}]
       panes:
-        - dev:
+        - webapp:
           - cd ./identTOP/identplus-web-client/src/main/webapp
+        - spich:
+          - spich
+        - plus:
+          - plus
         - backend:
           - cd wildfly
           - ./bin/standalone.sh -Duser.country=DE -Duser.language=de
-        - jobs:
-          - cd ./identTOP/identplus-web-client/src/main/webapp
-          - code .
-          - open http://identplus.dev:8000/
         - frontend:
           - cd ./identTOP/identplus-web-client/src/main/webapp
           - npm run server

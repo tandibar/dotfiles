@@ -42,6 +42,11 @@ echo "loaded antigene theme 'nebirhos'"
 antigen apply
 echo "applied antigene"
 
+############ my own PROMPT
+# Based on nebirhos but with linebreak
+PROMPT="$HOST_PROMPT_$RUBY_PROMPT_$GIT_PROMPT
+%{$fg_bold[green]%}%n@$HOST ➜ %{$reset_color%} "
+
 echo "add azure-cli autocompletion"
 . <(azure --completion)
 
@@ -106,6 +111,14 @@ alias fr="cd $FBX_REPOS/"
 alias fbp="cd $FBX_REPOS/fb-provisioning"
 alias fbt="cd $FBX_REPOS/angular-modules/finderbox-translations"
 alias fba="cd $FBX_REPOS/angular-modules/finderbox-api"
+echo "created finderbox aliases"
+
+echo "creating identplus aliases"
+alias spich="cd ~/identplus/identpro-spich"
+alias base="cd ~/identplus/identpro-base"
+alias ip="cd ~/identplus/identTOP-develop"
+alias plus="cd ~/identplus/identTOP-develop"
+alias ipw="cd ~/identplus/identTOP/identplus-web-client/src/main/webapp"
 echo "created finderbox aliases"
 
 alias git_config_idenpro="git config user.name \"Andi Bade\"; git config user.email \"andreas.bade@identpro.de\""
