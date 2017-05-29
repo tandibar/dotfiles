@@ -16,8 +16,23 @@ _deployautocomplete() {
 
 compctl -K _deployautocomplete deploy
 
+
 undeploy() {
   rm $WILDFLY_HOME/standalone/deployments/*
+  # if [ -z {$1+x} ]; then
+  #   # rm $WILDFLY_HOME/standalone/deployments/*
+  #   echo "no dollar 1: $1"
+  # else
+  #   echo "dollar 1: $1"
+  #   # rm $WILDFLY_HOME/standalone/deployments/*
+  # fi
 }
+
+_undeployautocomplete() {
+  reply=($(ls $WILDFLY_HOME/standalone/deployments/*))
+}
+
+compctl -K _undeployautocomplete undeploy
+
 
 echo "... wildfly deploy functions created"

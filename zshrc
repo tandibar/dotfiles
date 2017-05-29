@@ -113,6 +113,7 @@ alias plus="cd ~/identplus/identTOP-develop"
 alias ipw="cd ~/identplus/identTOP/identplus-web-client/src/main/webapp"
 alias mvni="mvn clean install -DskipTests"
 alias mvnp="mvn clean package -DskipTests"
+alias mvnd="mvn clean wildfly:deploy -DskipTests"
 alias wf="cd $WILDFLY_HOME && ./bin/standalone.sh -Duser.country=DE -Duser.language=de"
 echo "created finderbox aliases"
 
