@@ -1,6 +1,8 @@
 echo "starting antigene ..."
 source ~/dotfiles/antigen/antigen.zsh
 source ~/.machine.zsh
+source ~/dotfiles/plugins/deploy-to-wildfly/deploy
+
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -86,16 +88,6 @@ export ANSIBLE_VAULT_PASSWORD_FILE=${HOME}/.ansible_vault_pass.txt
 export WILDFLY_HOME="/Users/andreasbade/identplus/wildfly"
 
 echo "exported all environment variables"
-
-echo "creating functions ..."
-deploy() {
-  echo "deploying $1 into local wildfly ($WILDFLY_HOME)"
-  cp $1 "$WILDFLY_HOME/standalone/deployments"
-}
-undeploy() {
-  rm $WILDFLY_HOME/standalone/deployments/*
-}
-echo "... functions created"
 
 echo "creating aliases ..."
 alias es_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist"
