@@ -1,0 +1,17 @@
+name: kanbanbutton
+root: ~/kanbanbutton/kanban_button
+
+windows:
+  - server:
+      layout: 5f1a,207x54,0,0[208x37,0,0{105x37,0,0,0,102x37,106,0,2},208x16,0,38{66x16,0,38,3,70x16,67,38,4,70x16,138,38,5}]
+      panes:
+        - rails-code:
+          - cd .
+        - heroku:
+          - cd .
+        - rails-server:
+          - rails s
+        - webpack:
+          - ./bin/webpack-dev-server
+        - heroku-logs:
+          - heroku logs --tail

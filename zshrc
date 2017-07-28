@@ -52,7 +52,7 @@ PROMPT="$HOST_PROMPT_$RUBY_PROMPT_$GIT_PROMPT
 echo "add azure-cli autocompletion"
 . <(azure --completion)
 
-echo "export things"
+echo "extend path..."
 # export PATH="/Users/andi/.rvm/gems/ruby-1.9.3-p392/bin:/Users/andi/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/andi/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/andi/.rvm/bin:/usr/local/heroku/bin:/Users/andi/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin:/usr/local/share/npm/bin:/Users/andi/.rvm/bin"
 # PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -60,6 +60,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH" # add gnu sed
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
+echo "export things"
 export GIT_AUTHOR_NAME="Andi Bade"
 export GIT_AUTHOR_EMAIL="andi.bade@gmail.com"
 export GIT_COMMITTER_NAME="Andi Bade"
@@ -85,7 +86,6 @@ export FINDERBOX_HOME="~/repos/finderbox/finderbox-home"
 export FBX_HOME="~/repos"
 
 export ANSIBLE_VAULT_PASSWORD_FILE=${HOME}/.ansible_vault_pass.txt
-export WILDFLY_HOME="/Users/andreasbade/identplus/wildfly"
 
 echo "exported all environment variables"
 
@@ -106,12 +106,12 @@ alias fba="cd $FBX_REPOS/angular-modules/finderbox-api"
 echo "created finderbox aliases"
 
 echo "creating identplus aliases"
-alias spich="cd ~/identplus/identpro-spich"
-alias base="cd ~/identplus/identpro-base"
-alias ip="cd ~/identplus/identTOP-develop"
-alias plus="cd ~/identplus/identTOP-develop"
-alias ipw="cd ~/identplus/identTOP/identplus-web-client/src/main/webapp"
-alias ipd="cd ~/identplus/identplus-dashboard/"
+alias spich="cd $IDP_HOME/identpro-spich"
+alias base="cd $IDP_HOME/identpro-base"
+alias ip="cd $IDP_HOME/identTOP"
+alias plus="cd $IDP_HOME/identTOP"
+alias ipw="cd $IDP_HOME/identTOP/identplus-web-client/src/main/webapp"
+alias ipd="cd $IDP_HOME/identplus-dashboard/"
 alias mvni="mvn clean install -DskipTests"
 alias mvnp="mvn clean package -DskipTests"
 alias mvnd="mvn clean wildfly:deploy -DskipTests"

@@ -1,5 +1,5 @@
 name: identplus-dashboard
-root: /Users/andreasbade/identplus/identplus-dashboard
+root: <%= ENV["IDP_HOME"] %>/identplus-dashboard
 
 # pre: sudo nginx
 
@@ -17,15 +17,15 @@ root: /Users/andreasbade/identplus/identplus-dashboard
 
 windows:
   - server:
-      layout: a809,242x56,0,0[243x38,0,0{74x38,0,0,0,85x38,75,0,4,82x38,161,0,5},243x17,0,39{155x17,0,39,1,87x17,156,39,3}]
+      layout: 5f1a,207x54,0,0[208x37,0,0{105x37,0,0,0,102x37,106,0,2},208x16,0,38{66x16,0,38,3,70x16,67,38,4,70x16,138,38,5}]
       panes:
+        - dashboard:
+          - cd .
         - webapp:
-          - cd .
-        - spich:
-          - cd .
-        - plus:
-          - cd .
-        - backend:
+          - ipw
+        - wildfly:
           - wf
-        - frontend:
+        - webpack-dashboard:
           - npm run start
+        - webpack-dashboard:
+          - npm run grunt -- compile && npm run grunt -- server

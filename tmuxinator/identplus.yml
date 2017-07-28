@@ -1,5 +1,5 @@
 name: identplus
-root: /Users/andreasbade/identplus
+root: <%= ENV["IDP_HOME"] %>
 
 # pre: sudo nginx
 
