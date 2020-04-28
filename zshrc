@@ -124,3 +124,32 @@ alias mux="tmuxinator"
 echo "... aliases created"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export PATH="/home/andi/bin/Sencha/Cmd:$PATH"
+
+withPassword() {
+  echo -n Password:
+  read -s password
+}
+
+export EBI_HOME="/home/andi/kbs/ebi"
+
+ebiNpmActivate() {
+  export NODE_EXTRA_CA_CERTS='/home/andi/certificates/ebi-cacert.pem'
+  sudo npm config -g set cafile $NODE_EXTRA_CA_CERTS
+  npm config set registry https://nexus.cloud.kbs.de/repository/npm-all
+}
+
+ebiNpmDeactivate() {
+  npm config set registry https://registry.npmjs.org/
+  sudo npm config -g rm cafile
+}
+
+echo "activating pyenv..."
+export PATH="/home/andi/.pyenv/shims:/home/andi/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+echo "... pyenv activated"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/andi/.sdkman"
+[[ -s "/home/andi/.sdkman/bin/sdkman-init.sh" ]] && source "/home/andi/.sdkman/bin/sdkman-init.sh"
