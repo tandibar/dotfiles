@@ -1,0 +1,19 @@
+name: schooljet
+root: /home/andi/Projekte/schooljet
+
+startup_window: auth
+
+windows:
+  - auth:
+      layout: tiled
+      panes:
+        - api-server:
+          - cd schooljet-auth/api
+          - yarn dev
+        - client-server:
+          - cd schooljet-auth/client
+          - yarn serve
+        - api:
+          - cd schooljet-auth/api
+        - client:
+          - cd schooljet-auth/client

@@ -21,9 +21,11 @@ windows:
       panes:
         - konnektor:
           - cd konnektor
+          - sdk env
           - gradle bootRun
         - hl7-testtool:
           - cd hl7-testtool
+          - sdk env
           - gradle bootRun
   - frontend:
       layout: main-horizontal
@@ -33,19 +35,24 @@ windows:
           - npm run start-local
         - krankenhaus-gateway:
           - cd krankenhaus-gateway
+          - sdk env
           - gradle bootRun
   - backend:
       layout: b9ca,235x55,0,0[236x37,0,0,0,236x17,0,38{70x17,0,38,2,85x17,71,38,3,79x17,157,38,4}]
       panes:
         - fallakten-service:
           - cd fallakten-service
+          - sdk env
           - gradle bootRun --args='--spring.profiles.active=offline'
         - customer-router:
           - cd customer-router
+          - sdk env
           - gradle bootRun
         - mia-service:
           - cd mia-service
+          - sdk env
           - gradle bootRun
         - metadaten-service:
           - cd metadaten-service
+          - sdk env
           - gradle bootRun
