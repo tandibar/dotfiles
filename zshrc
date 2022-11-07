@@ -25,9 +25,10 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-history-substring-search
-
-# https://github.com/lukechilds/zsh-better-npm-completion
 antigen bundle lukechilds/zsh-better-npm-completion
+
+# PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(node_prompt_version)$(git_prompt_info)'
+# export PROMPT="$PROMPT $(node_prompt_version)"
 
 # kubectl autocompletion
 if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi # Fügen Sie der Zsh-Shell dauerhaft Autocomplete hinzu
@@ -44,10 +45,18 @@ echo "loaded antigene theme"
 antigen apply
 echo "applied antigene"
 
-############ my own PROMPT
-# Based on nebirhos but with linebreak
-# PROMPT="$HOST_PROMPT_$RUBY_PROMPT_$GIT_PROMPT
-# %{$fg_bold[green]%}%n@$HOST ➜ %{$reset_color%} "
+echo "add node version to prompt..."
+function node_prompt_version {
+    if which node &> /dev/null; then
+        echo "%{$fg_bold[blue]%}node(%{$fg[green]%}$(node -v)%{$fg[blue]%}) %{$reset_color%}"
+    fi
+}
+
+export PROMPT="$(virtualenv_prompt_info)%{%}%{$fg[green]%}%c \
+$(git_prompt_info)\
+$(node_prompt_version)\
+\
+%{$fg[red]%}%(!.#.»)%{$reset_color%}"
 
 echo "extend path..."
 
@@ -57,12 +66,10 @@ echo "export things"
 #export GIT_COMMITTER_NAME="Andi Bade"
 #export GIT_COMMITTER_EMAIL="andi.bade@gmail.com"
 
-export EDITOR='codium --wait'
-export VISUAL='codium --wait'
+export EDITOR='code --wait'
+export VISUAL='code --wait'
 
-export PATH="/home/andi/.yarn/bin:$PATH"
 export JAVA_OPTS="-Xms128m -Xmx4096m"
-export PATH="$PATH:$HOME/.npm/bin"
 export VAULT_ADDR="https://vault.cloud.kbs.de"
 
 # https://docs.microsoft.com/de-de/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver15#ubuntu
@@ -137,8 +144,22 @@ export SDKMAN_DIR="/home/andi/.sdkman"
 [[ -s "/home/andi/.sdkman/bin/sdkman-init.sh" ]] && source "/home/andi/.sdkman/bin/sdkman-init.sh"
 if [ -e /home/andi/.nix-profile/etc/profile.d/nix.sh ]; then . /home/andi/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.npm/bin:$PATH"
+
 # Created by `pipx` on 2022-05-09 09:40:16
 export PATH="$PATH:/home/andi/.local/bin"
 
 # pipx autocompletion
 eval "$(register-python-argcomplete pipx)"
+
+# https://askubuntu.com/questions/1125726/how-to-disable-ctrl-shift-e-keybinding-from-showing-eeeee-and-loading-emoji-opti/1269239#1269239
+export GTK_IM_MODULE="xim"
+
+alias git-remove-untracked="git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
+
+
+echo "export everything in ~/.env"
+set -o allexport
+source ~/.env
+set +o allexport
