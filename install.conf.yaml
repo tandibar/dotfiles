@@ -1,11 +1,15 @@
+- defaults:
+    link:
+      relink: true
+
 - clean: []
 
 - link:
-    ~/.antigen: antigen
     ~/.zshrc: zshrc
     ~/.gitconfig: gitconfig
-    ~/.tmux.conf: tmux.conf
-    ~/.tmuxinator: tmuxinator
+
+- create:
+    - ~/Downloads
 
 - shell:
-  - git update-submodules
+  - [git submodule update --init --recursive, Installing submodules]

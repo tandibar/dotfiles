@@ -1,165 +1,143 @@
-echo "starting antigene ..."
-source ~/dotfiles/antigen/antigen.zsh
-source ~/.machine.zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-zstyle ':completion:*' use-cache yes
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="awesomepanda"
+# ZSH_THEME="daveverwer"
+# ZSH_THEME="skaro"
+ZSH_THEME="spaceship" # https://spaceship-prompt.sh/getting-started/#__tabbed_1_3
+# https://github.com/ohmyzsh/ohmyzsh/wiki/External-themes#headline
 
-echo "adding bundles to antigene ..."
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle adb
-antigen bundle git
-antigen bundle git-flow
-antigen bundle gradle
-antigen bundle npm
-antigen bundle yarn
-antigen bundle history
-antigen bundle nvm
-antigen bundle rvm
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-antigen bundle command-not-found
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions src
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle lukechilds/zsh-better-npm-completion
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(node_prompt_version)$(git_prompt_info)'
-# export PROMPT="$PROMPT $(node_prompt_version)"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# kubectl autocompletion
-if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi # Fügen Sie der Zsh-Shell dauerhaft Autocomplete hinzu
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
 
-echo "... antigene bundles loaded"
-# Load the theme.
-# antigen theme nebirhos
-# antigen theme jonathan # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#jonathan
-# antigen theme robbyrussell # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#robbyrussell
-antigen theme kennethreitz # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#kennethreitz
-# antigen theme simple # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#simple
-echo "loaded antigene theme"
-# Tell antigen that you're done.
-antigen apply
-echo "applied antigene"
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
-echo "add node version to prompt..."
-function node_prompt_version {
-    if which node &> /dev/null; then
-        echo "%{$fg_bold[blue]%}node(%{$fg[green]%}$(node -v)%{$fg[blue]%}) %{$reset_color%}"
-    fi
-}
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-export PROMPT="$(virtualenv_prompt_info)%{%}%{$fg[green]%}%c \
-$(git_prompt_info)\
-$(node_prompt_version)\
-\
-%{$fg[red]%}%(!.#.»)%{$reset_color%}"
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-echo "extend path..."
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-echo "export things"
-#export GIT_AUTHOR_NAME="Andi Bade"
-#export GIT_AUTHOR_EMAIL="andi.bade@gmail.com"
-#export GIT_COMMITTER_NAME="Andi Bade"
-#export GIT_COMMITTER_EMAIL="andi.bade@gmail.com"
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
 
-export EDITOR='code --wait'
-export VISUAL='code --wait'
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-export JAVA_OPTS="-Xms128m -Xmx4096m"
-export VAULT_ADDR="https://vault.cloud.kbs.de"
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
 
-# https://docs.microsoft.com/de-de/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver15#ubuntu
-export PATH="$PATH:/opt/mssql-tools/bin/"
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-echo "exported all environment variables"
+# from edgedb-cli installation 
+fpath+=~/.zfunc
 
-echo "creating aliases ..."
-alias bt='cd /home/andi/Projekte/brautagebuch/brautagebuchapp/'
-alias pi='cd /home/andi/Projekte/raspberry/'
-alias k3s='cd /home/andi/Projekte/raspberry/pi-k8s'
-alias ebase='cd /home/andi/Projekte/edscha/code/ebase5'
-alias tio='cd /home/andi/Projekte/ticket-io/'
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  autojump # https://github.com/wting/autojump try this
+  aws
+  docker
+  docker-compose
+  extract
+  git
+  node
+  npm
+  nvm
+  ssh-agent
+  sudo # esc twice
+  zsh-autosuggestions
+  zsh-history-substring-search
+  zsh-interactive-cd
+  zsh-navigation-tools # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/zsh-navigation-tools#introduction
+)
 
-alias awsume=". awsume"
+# so that commands are green or red
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-echo "creating kbs aliases"
-export KBS_HOME="~/Projekte/kbs"
-alias mux="tmuxinator"
-echo "... aliases created"
+source $ZSH/oh-my-zsh.sh
+source $HOME/dotfiles/shell/aliases.zsh
+source $HOME/dotfiles/shell/path.zsh
 
-myip() {
-  ip=`dig +short myip.opendns.com @resolver1.opendns.com`
-  echo $ip | xclip -sel clip
-  echo "your current ip $fg[green] $ip $fg[default] is now in your clipboard"
-}
+export HOST_IP=$(hostname -I | awk '{print $1}')
+export NODE_OPTIONS=--max_old_space_size=16384
 
-alias pbcopy="xclip -sel clip"
+# User configuration
 
-kill_foxit() {
-  kill $(ps aux | grep '[f]oxit' | awk '{print $2}')
-}
+# export MANPATH="/usr/local/man:$MANPATH"
 
-withPassword() {
-  echo -n Password:
-  read -s password
-}
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-export EBI_HOME="/home/andi/Projekte/kbs/ebi"
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
 
-ebiNpmActivate() {
-  export NODE_EXTRA_CA_CERTS='/home/andi/certificates/ebi-cacert.pem'
-  sudo npm config -g set cafile $NODE_EXTRA_CA_CERTS
-  npm config set registry https://nexus.cloud.kbs.de/repository/npm-all
-}
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
 
-ebiNpmDeactivate() {
-  npm config set registry https://registry.npmjs.org/
-  sudo npm config -g rm cafile
-}
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-echo "activating pyenv..."
-export PATH="/home/andi/.pyenv/shims:/home/andi/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-echo "... pyenv activated"
+# edgeDB stuff
+source "/home/andi/.config/edgedb/env"
 
-echo "adding cargo (rust) to path..."
-export PATH="/home/andi/.cargo/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
 
-BEEP_SOUND="/usr/share/sounds/gnome/default/alerts/drip.ogg"
-echo "beep mit pyenv..."
-alias beep="paplay $BEEP_SOUND"
-
-alias mount-paperless="sudo mount 192.168.178.200:/export/scan-ohne-paperless /home/andi/Documents/Scan && sudo mount 192.168.178.200:/export/paperless-consumer /home/andi/Documents/paperless-ng-consumer"
-
-. $(pack completion --shell zsh)
-if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/andi/.sdkman"
-[[ -s "/home/andi/.sdkman/bin/sdkman-init.sh" ]] && source "/home/andi/.sdkman/bin/sdkman-init.sh"
-if [ -e /home/andi/.nix-profile/etc/profile.d/nix.sh ]; then . /home/andi/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="$HOME/.npm/bin:$PATH"
-
-# Created by `pipx` on 2022-05-09 09:40:16
-export PATH="$PATH:/home/andi/.local/bin"
-
-# pipx autocompletion
-eval "$(register-python-argcomplete pipx)"
-
-# https://askubuntu.com/questions/1125726/how-to-disable-ctrl-shift-e-keybinding-from-showing-eeeee-and-loading-emoji-opti/1269239#1269239
-export GTK_IM_MODULE="xim"
-
-alias git-remove-untracked="git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
-
-
-echo "export everything in ~/.env"
-set -o allexport
-source ~/.env
-set +o allexport
+export BROWSER=google-chrome
