@@ -1,0 +1,5 @@
+[plugins.spaceship]
+github = "spaceship-prompt/spaceship-prompt"
+
+[plugins.autojump]
+github = 'wting/autojump'

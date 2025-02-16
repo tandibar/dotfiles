@@ -1,12 +1,17 @@
 - defaults:
     link:
       relink: true
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true
 
 - clean: []
 
 - link:
     ~/.zshrc: zshrc
     ~/.gitconfig: gitconfig
+    ~/.config/sheldon/plugins.toml: sheldon/plugins.toml
 
 - create:
     - ~/Downloads
@@ -14,14 +19,8 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - sudo apt update
+  - [sudo apt install zsh -y, Install zsh]  
+  - [curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin, Install sheldon (zsh plugin manager)]
   -
-    command: sudo apt install zsh -y
-    stdout: true
-    stderr: true
-    description: Install zsh
-  -
-    command: chsh -s $(which zsh)
-    description: Making zsh the default shell
-    stdin: true
-    stdout: true
-    stderr: true
+    description: Installing/updating sheldon plugins
+    command: "[ -s $HOME/.sheldon/plugins.toml ] && command -v sheldon >/dev/null 2>&1 && sheldon lock --update || exit 0"
