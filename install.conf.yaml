@@ -13,3 +13,15 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - sudo apt update
+  -
+    command: sudo apt install zsh -y
+    stdout: true
+    stderr: true
+    description: Install zsh
+  -
+    command: chsh -s $(which zsh)
+    description: Making zsh the default shell
+    stdin: true
+    stdout: true
+    stderr: true
