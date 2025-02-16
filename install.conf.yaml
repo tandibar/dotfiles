@@ -15,12 +15,18 @@
 
 - create:
     - ~/Downloads
+    - ~/.local/bin
+    - ~/.config/sheldon
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - sudo apt update
   - [sudo apt install zsh -y, Install zsh]  
-  - [curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin, Install sheldon (zsh plugin manager)]
+  - [sudo apt install zsh-syntax-highlighting -y, Install zsh-syntax-highlighting]  
+  - [chsh -s $(which zsh), Making zsh the default shell]
+  - 
+    description: Install sheldon
+    command: "[ ! -f /home/ubuntu/.local/bin/sheldon ] && curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin"
   -
     description: Installing/updating sheldon plugins
     command: "[ -s $HOME/.sheldon/plugins.toml ] && command -v sheldon >/dev/null 2>&1 && sheldon lock --update || exit 0"
