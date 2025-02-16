@@ -36,3 +36,5 @@ alias emu="cd /home/andi/Android/Sdk/emulator/ && /home/andi/Android/Sdk/emulato
 alias dcu="docker compose up -d"
 alias dcd="docker compose down"
 alias dc="docker compose"
+
+alias ll="ls -als"

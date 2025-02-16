@@ -1,5 +1,22 @@
+shell = "zsh"
+
 [plugins.spaceship]
 github = "spaceship-prompt/spaceship-prompt"
 
 [plugins.autojump]
-github = 'wting/autojump'
+github = "wting/autojump"
+dir = "bin"
+apply = ["PATH", "source"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+
+[plugins.oh-my-zsh]
+github = "ohmyzsh/ohmyzsh"

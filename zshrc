@@ -6,6 +6,22 @@ fpath+=~/.zfunc
 
 # so that commands are green or red
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+
+plugins=(
+  aws
+  docker
+  docker-compose
+  extract
+  git
+  node
+  npm
+  nvm
+  ssh-agent
+  sudo # esc twice
+  zsh-interactive-cd
+  zsh-navigation-tools # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/zsh-navigation-tools#introduction
+)
 
 eval "$(sheldon source)"
 
