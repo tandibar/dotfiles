@@ -12,7 +12,8 @@
     - ~/Downloads
     - ~/.local/bin
     - ~/.config/sheldon
-
+    - ~/projects
+    
 - link:
     ~/.zshrc: zshrc
     ~/.gitconfig: gitconfig
@@ -24,6 +25,7 @@
   - [sudo apt install zsh -y, Install zsh]  
   - [sudo apt install zsh-syntax-highlighting -y, Install zsh-syntax-highlighting]  
   - [chsh -s $(which zsh), Making zsh the default shell]
+  - [sudo apt install nvm -y, Install nvm]
   - 
     description: Install sheldon
     command: "[ ! -f /home/ubuntu/.local/bin/sheldon ] && curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin"
