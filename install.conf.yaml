@@ -8,15 +8,15 @@
 
 - clean: []
 
-- link:
-    ~/.zshrc: zshrc
-    ~/.gitconfig: gitconfig
-    ~/.config/sheldon/plugins.toml: sheldon/plugins.toml
-
 - create:
     - ~/Downloads
     - ~/.local/bin
     - ~/.config/sheldon
+
+- link:
+    ~/.zshrc: zshrc
+    ~/.gitconfig: gitconfig
+    ~/.config/sheldon/plugins.toml: sheldon/plugins.toml
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
