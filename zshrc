@@ -1,4 +1,3 @@
-ZSH_THEME="spaceship" # https://spaceship-prompt.sh/getting-started/#__tabbed_1_3
 source $HOME/dotfiles/shell/path.zsh
 
 # so that commands are green or red
@@ -23,10 +22,13 @@ plugins=(
 eval "$(sheldon source)"
 
 source $HOME/dotfiles/shell/aliases.zsh
+source $HOME/dotfiles/shell/functions.zsh
+source $HOME/dotfiles/shell/install-scripts.zsh
 
 export HOST_IP=$(hostname -I | awk '{print $1}')
 export NODE_OPTIONS=--max_old_space_size=16384
 
-export NVM_DIR="$HOME/.nvm"
-
 export BROWSER=google-chrome
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
