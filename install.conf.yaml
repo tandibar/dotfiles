@@ -13,22 +13,27 @@
     - ~/.local/bin
     - ~/.config/sheldon
     - ~/projects
-    
+
 - link:
     ~/.zshrc: zshrc
     ~/.gitconfig: gitconfig
     ~/.config/sheldon/plugins.toml: sheldon/plugins.toml
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - sudo apt update
-  - [sudo apt install zsh -y, Install zsh]  
-  - [sudo apt install zsh-syntax-highlighting -y, Install zsh-syntax-highlighting]  
-  - [chsh -s $(which zsh), Making zsh the default shell]
-  - [sudo apt install nvm -y, Install nvm]
-  - 
-    description: Install sheldon
-    command: "[ ! -f /home/ubuntu/.local/bin/sheldon ] && curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin"
-  -
-    description: Installing/updating sheldon plugins
-    command: "[ -s $HOME/.sheldon/plugins.toml ] && command -v sheldon >/dev/null 2>&1 && sheldon lock --update || exit 0"
+    - [git submodule update --init --recursive, Installing submodules]
+    - sudo apt update
+    - [sudo apt install zsh -y, Install zsh]
+    - [
+        sudo apt install zsh-syntax-highlighting -y,
+        Install zsh-syntax-highlighting,
+      ]
+    - [chsh -s $(which zsh), Making zsh the default shell]
+    - [
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash,
+        Install nvm,
+      ]
+    - [sudo apt install fzf -y, Install fzf]
+    - description: Install sheldon
+      command: "[ ! -f /home/ubuntu/.local/bin/sheldon ] && curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin"
+    - description: Installing/updating sheldon plugins
+      command: "[ -s $HOME/.sheldon/plugins.toml ] && command -v sheldon >/dev/null 2>&1 && sheldon lock --update || exit 0"
