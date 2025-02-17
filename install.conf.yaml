@@ -33,6 +33,7 @@
         Install nvm,
       ]
     - [sudo apt install fzf -y, Install fzf]
+    - [sudo apt install xclip -y, Install xclip for clipboard support]
     - description: Install sheldon
       command: "[ ! -f /home/ubuntu/.local/bin/sheldon ] && curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin"
     - description: Installing/updating sheldon plugins
