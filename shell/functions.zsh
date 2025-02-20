@@ -18,3 +18,9 @@ nodeForSudo() {
   sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/npm" "/usr/local/bin/npm"
   sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/npx" "/usr/local/bin/npx"
 }
+
+addHosts() {
+  echo "Adding these hosts to /etc/hosts"
+  echo "127.0.0.1 solawi-local.app" | sudo tee -a /etc/hosts
+  echo "127.0.0.1 hofkollektiv.solawi-local.app" | sudo tee -a /etc/hosts
+}
