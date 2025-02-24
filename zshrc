@@ -4,8 +4,8 @@ source $HOME/dotfiles/shell/path.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 
-eval "$(sheldon source)"
-
+# has to be before sheldon source, because
+# sheldon will load the plugins via oh-my-zsh
 plugins=(
   aws
   docker
@@ -20,6 +20,8 @@ plugins=(
   zsh-interactive-cd
   zsh-navigation-tools # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/zsh-navigation-tools#introduction
 )
+
+eval "$(sheldon source)"
 
 source $HOME/dotfiles/shell/aliases.zsh
 source $HOME/dotfiles/shell/functions.zsh
