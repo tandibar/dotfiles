@@ -1,5 +1,5 @@
 myip() {
-  ip=`dig +short myip.opendns.com @resolver1.opendns.com`
+  ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
   echo $ip | xclip -sel clip
   echo "your current ip $fg[green] $ip $fg[default] is now in your clipboard"
 }
@@ -22,5 +22,13 @@ nodeForSudo() {
 addHosts() {
   echo "Adding these hosts to /etc/hosts"
   echo "127.0.0.1 solawi-local.app" | sudo tee -a /etc/hosts
-  echo "127.0.0.1 hofkollektiv.solawi-local.app" | sudo tee -a /etc/hosts
+  echo "::1 solawi-local.app" | sudo tee -a /etc/hosts
+  echo "127.0.0.1 demo-solawi.solawi-local.app" | sudo tee -a /etc/hosts
+  echo "::1 demo-solawi.solawi-local.app" | sudo tee -a /etc/hosts
+  echo "127.0.0.1 waitio-admin.ticketio.local" | sudo tee -a /etc/hosts
+  echo "::1 waitio-admin.ticketio.local" | sudo tee -a /etc/hosts
+  echo "127.0.0.1 waitio-api.ticketio.local" | sudo tee -a /etc/hosts
+  echo "::1 waitio-api.ticketio.local" | sudo tee -a /etc/hosts
+  echo "127.0.0.1 oauth-mock.ebase.local" | sudo tee -a /etc/hosts
+  echo "::1 oauth-mock.ebase.local" | sudo tee -a /etc/hosts
 }
