@@ -17,4 +17,4 @@ alias dcu="docker compose up -d"
 alias dcd="docker compose down"
 alias dc="docker compose"
 
-alias ll="ls -als"
+alias ll="ls -alsh"
