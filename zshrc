@@ -26,6 +26,7 @@ eval "$(sheldon source)"
 source $HOME/dotfiles/shell/aliases.zsh
 source $HOME/dotfiles/shell/functions.zsh
 source $HOME/dotfiles/shell/install-scripts.zsh
+source $HOME/dotfiles/shell/exports.zsh
 
 export HOST_IP=$(hostname -I | awk '{print $1}')
 export NODE_OPTIONS=--max_old_space_size=16384
