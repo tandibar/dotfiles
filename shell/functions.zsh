@@ -20,6 +20,7 @@ nodeForSudo() {
 }
 
 addHosts() {
+  WSL_IP=$(ip route show | grep -i default | awk '{ print $3}')
   echo "Adding these hosts to /etc/hosts"
   echo "127.0.0.1 solawi-local.app" | sudo tee -a /etc/hosts
   echo "::1 solawi-local.app" | sudo tee -a /etc/hosts
@@ -31,4 +32,5 @@ addHosts() {
   echo "::1 waitio-api.ticketio.local" | sudo tee -a /etc/hosts
   echo "127.0.0.1 oauth-mock.ebase.local" | sudo tee -a /etc/hosts
   echo "::1 oauth-mock.ebase.local" | sudo tee -a /etc/hosts
+  echo "${WSL_IP} ebase.local" | sudo tee -a /etc/hosts
 }
