@@ -18,3 +18,6 @@ alias dcd="docker compose down"
 alias dc="docker compose"
 
 alias ll="ls -alsh"
+
+alias kds="kamal deploy -d staging --version staging --skip-push"
+alias kdp="kamal deploy -d production --version production --skip-push"
