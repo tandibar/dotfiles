@@ -57,3 +57,5 @@ ASYNCAPI_AC_ZSH_SETUP_PATH=/home/andi/.cache/@asyncapi/cli/autocomplete/zsh_setu
 
 # addHosts
 eval "$(/home/andi/.local/bin/mise activate zsh)"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
