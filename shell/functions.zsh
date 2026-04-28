@@ -13,6 +13,24 @@ withPassword() {
   read -s password
 }
 
+read_secret() {
+  local var_name="$1"
+  local prompt="${2:-$var_name}"
+
+  if [ -z "$var_name" ]; then
+    echo "Usage: read_secret VARIABLE_NAME [PROMPT]"
+    return 1
+  fi
+
+  # Prompt separat ausgeben
+  printf "%s: " "$prompt"
+  read -rs value
+  echo
+
+  printf -v "$var_name" '%s' "$value"
+  export "$var_name"
+}
+
 nodeForSudo() {
   sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/node" "/usr/local/bin/node"
   sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/npm" "/usr/local/bin/npm"
